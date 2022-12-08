@@ -1,0 +1,1 @@
+# odoo-ghn-connector
