@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_api_connect_config,api_connect_config,model_api_connect_config,base.group_system,1,1,1,1
+access_api_connect_history,api_connect_history,model_api_connect_history,base.group_system,1,1,1,1
+access_api_endpoint_config,api_endpoint_config,model_api_endpoint_config,base.group_system,1,1,1,1
+access_ghn_province,ghn_province,model_ghn_province,base.group_system,1,1,1,1
+access_ghn_district,ghn_district,model_ghn_district,base.group_system,1,1,1,1
+access_ghn_ward,ghn_ward,model_ghn_ward,base.group_system,1,1,1,1

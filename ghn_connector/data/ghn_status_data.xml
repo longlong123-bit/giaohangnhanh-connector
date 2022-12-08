@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record model="ghn.status" id="ghn_status_1">
+            <field name="vi_name">Đơn hàng vận chuyển vừa được tạo</field>
+            <field name="en_name">Shipping order has just been created</field>
+            <field name="code">ready_to_pick</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_2">
+            <field name="vi_name">Shipper đang đến nhận hàng</field>
+            <field name="en_name">Shipper is coming to pick up the goods</field>
+            <field name="code">picking</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_3">
+            <field name="vi_name">Đơn hàng vận chuyển đã bị hủy</field>
+            <field name="en_name">Shipping order has been cancelled</field>
+            <field name="code">cancel</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_4">
+            <field name="vi_name">Người gửi hàng đang tương tác với người bán</field>
+            <field name="en_name">Shipper are interacting with the seller</field>
+            <field name="code">money_collect_picking</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_5">
+            <field name="vi_name">Shipper đã lấy hàng</field>
+            <field name="en_name">Shipper is picked the goods</field>
+            <field name="code">picked</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_6">
+            <field name="vi_name">Hàng đã được chuyển về trung tâm phân loại của GHN</field>
+            <field name="en_name">The goods has been shipped to GHN sorting hub</field>
+            <field name="code">storing</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_7">
+            <field name="vi_name">Hàng hóa đang được luân chuyển</field>
+            <field name="en_name">The goods are being rotated</field>
+            <field name="code">transporting</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_8">
+            <field name="vi_name">Hàng đang được phân loại (tại kho phân loại)</field>
+            <field name="en_name">The goods are being classified (at the warehouse classification)</field>
+            <field name="code">sorting</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_9">
+            <field name="vi_name">Shipper đang giao hàng cho khách</field>
+            <field name="en_name">Shipper is delivering the goods to customer</field>
+            <field name="code">delivering</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_10">
+            <field name="vi_name">Người gửi hàng đang tương tác với người mua</field>
+            <field name="en_name">Shipper is interacting with the buyer</field>
+            <field name="code">money_collect_delivering</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_11">
+            <field name="vi_name">Hàng đã được giao cho khách</field>
+            <field name="en_name">The goods has been delivered to customer</field>
+            <field name="code">delivered</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_12">
+            <field name="vi_name">Hàng chưa giao cho khách</field>
+            <field name="en_name">The goods has not been delivered to customer</field>
+            <field name="code">delivery_fail</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_13">
+            <field name="vi_name">Hàng đang chờ giao (có thể giao trong 24/48h)</field>
+            <field name="en_name">The goods are pending delivery (can be delivered within 24/48h)</field>
+            <field name="code">waiting_to_return</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_14">
+            <field name="vi_name">Hàng đang chờ trả lại người bán/thương nhân sau 3 lần giao hàng không thành công</field>
+            <field name="en_name">The goods are waiting to return to seller/merchant after 3 times delivery failed</field>
+            <field name="code">return</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_15">
+            <field name="vi_name">Hàng hóa đang được luân chuyển</field>
+            <field name="en_name">The goods are being rotated</field>
+            <field name="code">return_transporting</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_16">
+            <field name="vi_name">Hàng đang được phân loại (tại kho phân loại)</field>
+            <field name="en_name">The goods are being classified (at the warehouse classification)</field>
+            <field name="code">return_sorting</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_17">
+            <field name="vi_name">Shipper đang trả hàng cho người bán</field>
+            <field name="en_name">The shipper is returning for seller</field>
+            <field name="code">returning</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_18">
+            <field name="vi_name">Trả hàng không thành công</field>
+            <field name="en_name">The returning is failed</field>
+            <field name="code">return_fail</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_19">
+            <field name="vi_name">Đã trả hàng cho người bán</field>
+            <field name="en_name">The goods has been returned to seller/merchant</field>
+            <field name="code">returned</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_19">
+            <field name="vi_name">Xử lý ngoại lệ hàng hóa (trường hợp đi ngược quy trình)</field>
+            <field name="en_name">The goods exception handling (cases that go against the process)</field>
+            <field name="code">exception</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_20">
+            <field name="vi_name">Xử lý ngoại lệ hàng hóa (trường hợp đi ngược quy trình)</field>
+            <field name="en_name">The goods exception handling (cases that go against the process)</field>
+            <field name="code">exception</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_21">
+            <field name="vi_name">Hàng hóa bị hư hỏng</field>
+            <field name="en_name">Damaged goods</field>
+            <field name="code">damage</field>
+        </record>
+        <record model="ghn.status" id="ghn_status_22">
+            <field name="vi_name">Hàng hóa bị mất</field>
+            <field name="en_name">Damaged goods</field>
+            <field name="code">lost</field>
+        </record>
+    </data>
+</odoo>
