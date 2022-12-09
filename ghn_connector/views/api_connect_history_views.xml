@@ -10,6 +10,7 @@
                         <field name="create_date"/>
                         <field name="name"/>
                         <field name="method"/>
+                        <field name="headers"/>
                         <field name="url"/>
                         <field name="body"/>
                         <field name="message"/>
@@ -28,10 +29,11 @@
                 <field name="create_date"/>
                 <field name="name"/>
                 <field name="method"/>
+                <field name="headers"/>
                 <field name="url"/>
                 <field name="body"/>
-                <field name="message"/>
                 <field name="status"/>
+                <field name="message"/>
             </tree>
         </field>
     </record>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="Sync.Buttons" t-inherit="web.ListView.Buttons" t-inherit-mode="primary" owl="1">
+        <xpath expr="(//div/*)[last()]" position="after">
+            <button t-if="props.resModel=='ghn.province'"
+                    type="button"
+                    class="btn btn-primary o_button_sync_province"
+                    style="margin-left: 5px !important;"
+                    t-on-click="onClickSyncProvince">
+                Sync Provinces
+            </button>
+            <button t-if="props.resModel=='ghn.district'"
+                    type="button"
+                    class="btn btn-primary o_button_sync_district"
+                    t-on-click="onClickSyncDistrict"
+                    style="margin-left: 5px !important;">
+                Sync Districts
+            </button>
+            <button t-if="props.resModel=='ghn.ward'"
+                    type="button"
+                    class="btn btn-primary o_button_sync_ward"
+                    t-on-click="onClickSyncWard"
+                    style="margin-left: 5px !important;">
+                Sync Wards
+            </button>
+            <button t-if="props.resModel=='ghn.service'"
+                    type="button"
+                    class="btn btn-primary o_button_sync_service"
+                    t-on-click="onClickSyncService"
+                    style="margin-left: 5px !important;">
+                Sync Services
+            </button>
+            <button t-if="props.resModel=='ghn.store'"
+                    type="button"
+                    t-on-click="onClickCreateStore"
+                    class="btn btn-primary o_button_create_store">
+                Create
+            </button>
+            <button t-if="props.resModel=='ghn.store'"
+                    type="button"
+                    t-on-click="onClickSyncStore"
+                    class="btn btn-primary o_button_sync_store"
+                    style="margin-left: 5px !important;">
+                Sync Stores
+            </button>
+        </xpath>
+    </t>
+</templates>

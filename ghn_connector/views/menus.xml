@@ -9,12 +9,12 @@
               sequence="80"
               groups="base.group_system" />
     <!--    Menu store-->
-<!--    <menuitem id="menu_ghn_store"-->
-<!--              name="Warehouse"-->
-<!--              parent="menu_ghn_root"-->
-<!--              action="ghn_store_action_view"-->
-<!--              sequence="85"-->
-<!--              groups="base.group_system" />-->
+    <menuitem id="menu_ghn_store"
+              name="Store"
+              parent="menu_ghn_root"
+              action="ghn_store_action_view"
+              sequence="85"
+              groups="base.group_system" />
     <!--    Menu service-->
     <menuitem id="menu_ghn_service"
               name="Service"

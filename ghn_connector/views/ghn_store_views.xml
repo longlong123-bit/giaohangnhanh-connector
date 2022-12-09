@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="ghn_store_form_view" model="ir.ui.view">
+        <field name="name">ghn.store.form.view</field>
+        <field name="model">ghn.store</field>
+        <field name="arch" type="xml">
+            <form string="Store" create="0" edit="0" import="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="delivery_carrier_id"/>
+                            <field name="name"/>
+                            <field name="phone"/>
+                        </group>
+                        <group>
+                            <field name="address"/>
+                            <field name="did"/>
+                            <field name="wid"/>
+                            <field name="status"/>
+                            <field name="version_no"/>
+                            <field name="cid" invisible="1"/>
+                            <field name="clid" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                     <field name="message_follower_ids" widget="mail_followers"/>
+                     <field name="message_ids" colspan="4" widget="mail_thread" nolabel="1"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="ghn_store_tree_view" model="ir.ui.view">
+        <field name="name">ghn.store.tree.view</field>
+        <field name="model">ghn.store</field>
+        <field name="arch" type="xml">
+            <tree string="Store" create="0" export_xlsx="0" js_class="override_btn">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="address"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ghn_store_search_view" model="ir.ui.view">
+        <field name="name">ghn.store.search</field>
+        <field name="model">ghn.store</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="address"/>
+                <field name="status"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="ghn_store_action_view">
+        <field name="name">Store</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ghn.store</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('ghn_store_tree_view')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('ghn_store_form_view')})]"/>
+        <field name="search_view_id" ref="ghn_store_search_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new warehouse.
+            </p>
+        </field>
+    </record>
+</odoo>

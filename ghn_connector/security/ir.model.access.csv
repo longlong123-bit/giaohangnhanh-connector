@@ -5,3 +5,7 @@ access_api_endpoint_config,api_endpoint_config,model_api_endpoint_config,base.gr
 access_ghn_province,ghn_province,model_ghn_province,base.group_system,1,1,1,1
 access_ghn_district,ghn_district,model_ghn_district,base.group_system,1,1,1,1
 access_ghn_ward,ghn_ward,model_ghn_ward,base.group_system,1,1,1,1
+access_ghn_status,ghn_status,model_ghn_status,base.group_system,1,1,1,1
+access_ghn_store,ghn_store,model_ghn_store,base.group_system,1,1,1,1
+access_ghn_service,ghn_service,model_ghn_service,base.group_system,1,1,1,1
+access_create_store_wizard,create_store_wizard,model_create_store_wizard,base.group_system,1,1,1,1

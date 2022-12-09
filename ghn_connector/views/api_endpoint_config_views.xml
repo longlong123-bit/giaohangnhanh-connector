@@ -11,7 +11,7 @@
                         <field name="host"/>
                         <field name="endpoint"/>
                         <field name="description"/>
-                        <field name="api_connect_config_id" invisible="1"/>
+                        <field name="api_connect_config_id"/>
                     </group>
                 </sheet>
             </form>
@@ -27,7 +27,7 @@
                 <field name="host"/>
                 <field name="endpoint"/>
                 <field name="description"/>
-                <field name="api_connect_config_id" invisible="1"/>
+                <field name="api_connect_config_id"/>
             </tree>
         </field>
     </record>

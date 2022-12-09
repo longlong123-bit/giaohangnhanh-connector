@@ -14,7 +14,6 @@
                             <field name="delivery_carrier_id" invisible="1"/>
                         </group>
                         <group>
-                            <field name="active"/>
                             <field name="can_update_cod"/>
                             <field name="support_type"/>
                             <field name="status"/>
@@ -38,11 +37,10 @@
         <field name="name">ghn.ward.tree.view</field>
         <field name="model">ghn.ward</field>
         <field name="arch" type="xml">
-            <tree string="Ward" export_xlsx="0">
+            <tree string="Ward" export_xlsx="0" js_class="override_btn">
                 <field name="did"/>
                 <field name="name"/>
                 <field name="code"/>
-                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -55,13 +53,12 @@
                 <field name="did"/>
                 <field name="name"/>
                 <field name="code"/>
-                <field name="active"/>
             </search>
         </field>
     </record>
 
     <record model="ir.actions.act_window" id="ghn_ward_action_view">
-        <field name="name">Ward</field>
+        <field name="name">Wards</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">ghn.ward</field>
         <field name="view_ids" eval="[(5, 0, 0),

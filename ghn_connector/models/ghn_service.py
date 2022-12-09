@@ -1,9 +1,8 @@
 from odoo import fields, api, models, _
 from odoo.exceptions import UserError
 
-from odoo.addons.viettelpost_connector.clients.viettelpost_clients import ViettelPostClient
-from odoo.addons.viettelpost_connector.contanst.viettelpost_contanst import Const
-from odoo.addons.viettelpost_connector.contanst.viettelpost_contanst import Message
+from odoo.addons.ghn_connector.contanst.ghn_contanst import Const
+from odoo.addons.ghn_connector.contanst.ghn_contanst import Message
 
 
 class GHNService(models.Model):
@@ -16,12 +15,9 @@ class GHNService(models.Model):
     type = fields.Integer(string='Type')
     delivery_carrier_id = fields.Many2one('delivery.carrier', string='Delivery Carrier')
 
-    # @api.model
+    @api.model
     # def sync_service(self):
-    #     server_id = self.env['api.connect.config'].search([('code', '=', Const.BASE_CODE), ('active', '=', True)])
-    #     if not server_id:
-    #         raise UserError(_(Message.BASE_MSG))
-    #     client = ViettelPostClient(server_id.host, server_id.token, self)
+    #     client = self.env['api.connect.config'].generate_client_api_ghn()
     #     try:
     #         delivery_carrier_id = self.env['delivery.carrier'].search(
     #             [('delivery_carrier_code', '=', Const.DELIVERY_CARRIER_CODE)])

@@ -26,7 +26,7 @@
                                 <tree editable="bottom" create="0" edit="0">
                                     <field name="pid"/>
                                     <field name="name"/>
-                                    <field name="district_code"/>
+                                    <field name="did"/>
                                 </tree>
                             </field>
                         </page>
@@ -47,7 +47,7 @@
         <field name="name">ghn.province.tree.view</field>
         <field name="model">ghn.province</field>
         <field name="arch" type="xml">
-            <tree string="Province" export_xlsx="0">
+            <tree string="Province" export_xlsx="0" js_class="override_btn">
                 <field name="country_id"/>
                 <field name="name"/>
                 <field name="status"/>
@@ -71,7 +71,7 @@
     </record>
 
     <record model="ir.actions.act_window" id="ghn_province_action_view">
-        <field name="name">Province</field>
+        <field name="name">Provinces</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">ghn.province</field>
         <field name="view_ids" eval="[(5, 0, 0),
