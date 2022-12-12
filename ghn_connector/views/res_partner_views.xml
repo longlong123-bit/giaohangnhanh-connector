@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_partner_view_ghn_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.view.ghn.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[last()]" position="after">
+                <page string="GHN Receiver Address">
+                    <group>
+                        <group>
+                            <field name="ghn_street"/>
+                            <field name="ghn_ward_id"/>
+                            <field name="ghn_district_id"/>
+                            <field name="ghn_province_id"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

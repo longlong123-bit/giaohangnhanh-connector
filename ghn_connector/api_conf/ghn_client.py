@@ -36,6 +36,21 @@ class GHNClient:
         res = self.check_response(res)
         return res
 
+    def get_pick_shift(self):
+        res = self.conn.execute_restful(FuncName.GetPickShift, Method.GET)
+        res = self.check_response(res)
+        return res
+
+    def get_service(self, payload):
+        res = self.conn.execute_restful(FuncName.GetServices, Method.POST, **payload)
+        res = self.check_response(res)
+        return res
+
+    def calculate_fee(self, payload):
+        res = self.conn.execute_restful(FuncName.CalculateFee, Method.POST, **payload)
+        res = self.check_response(res)
+        return res
+
     def check_response(self, res):
         if res['code'] == 200:
             res = res['data']

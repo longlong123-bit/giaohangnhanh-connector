@@ -72,3 +72,5 @@ class ApiEndpointConfig(models.Model):
     api_connect_config_id = fields.Many2one('api.connect.config', string='Api connect config id')
     host = fields.Char(related='api_connect_config_id.host', string='Host')
     description = fields.Text(string='Description')
+    category = fields.Char(string='Category')
+

@@ -7,11 +7,12 @@
             <form string="Endpoint config" delete="0">
                 <sheet>
                     <group>
+                        <field name="api_connect_config_id"/>
                         <field name="name"/>
                         <field name="host"/>
                         <field name="endpoint"/>
                         <field name="description"/>
-                        <field name="api_connect_config_id"/>
+                        <field name="category"/>
                     </group>
                 </sheet>
             </form>
@@ -27,6 +28,7 @@
                 <field name="host"/>
                 <field name="endpoint"/>
                 <field name="description"/>
+                <field name="category"/>
                 <field name="api_connect_config_id"/>
             </tree>
         </field>
@@ -38,6 +40,7 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
+                <field name="category"/>
                 <field name="endpoint"/>
             </search>
         </field>

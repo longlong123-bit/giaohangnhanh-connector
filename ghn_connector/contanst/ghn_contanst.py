@@ -15,7 +15,9 @@ class FuncName:
     SyncWards = 'SyncWards'
     SyncStores = 'SyncStores'
     GenerateStore = 'GenerateStore'
-
+    GetPickShift = 'GetPickShift'
+    GetServices = 'GetServices'
+    CalculateFee = 'CalculateFee'
 
 
 class Method:
