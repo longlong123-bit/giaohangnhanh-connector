@@ -1,9 +1,8 @@
 from odoo import fields, models, _, api
 from odoo.exceptions import UserError
 
-from odoo.addons.ghn_connector.contanst.ghn_contanst import Const
-from odoo.addons.ghn_connector.contanst.ghn_contanst import Message
-from odoo.addons.ghn_connector.api_conf.ghn_client import GHNClient
+from odoo.addons.ghn_connector.constants.ghn_constants import Const
+from odoo.addons.ghn_connector.constants.ghn_constants import Message
 
 
 class GHNProvince(models.Model):

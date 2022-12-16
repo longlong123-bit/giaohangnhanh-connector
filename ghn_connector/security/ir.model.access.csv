@@ -8,4 +8,7 @@ access_ghn_ward,ghn_ward,model_ghn_ward,base.group_system,1,1,1,1
 access_ghn_status,ghn_status,model_ghn_status,base.group_system,1,1,1,1
 access_ghn_store,ghn_store,model_ghn_store,base.group_system,1,1,1,1
 access_ghn_service,ghn_service,model_ghn_service,base.group_system,1,1,1,1
+access_ghn_post_office,ghn_post_office,model_ghn_post_office,base.group_system,1,1,1,1
+access_ghn_bin_packer,ghn_bin_packer,model_ghn_bin_packer,base.group_system,1,1,1,1
 access_create_store_wizard,create_store_wizard,model_create_store_wizard,base.group_system,1,1,1,1
+access_sale_order,sale_order,model_sale_order,base.group_system,1,1,1,1

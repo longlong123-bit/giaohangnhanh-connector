@@ -1,6 +1,6 @@
 from odoo import fields, models, _, api
 from odoo.exceptions import UserError
-from odoo.addons.ghn_connector.contanst.ghn_contanst import Message
+from odoo.addons.ghn_connector.constants.ghn_constants import Message
 
 
 class CreateStoreWizard(models.Model):

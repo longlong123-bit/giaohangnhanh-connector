@@ -18,6 +18,7 @@ class FuncName:
     GetPickShift = 'GetPickShift'
     GetServices = 'GetServices'
     CalculateFee = 'CalculateFee'
+    SyncPostOffices = 'SyncPostOffices'
 
 
 class Method:

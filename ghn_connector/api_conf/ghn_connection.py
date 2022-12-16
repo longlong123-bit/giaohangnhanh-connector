@@ -4,8 +4,8 @@ from datetime import datetime
 from odoo.exceptions import UserError
 from odoo.tools.translate import _
 import logging
-from odoo.addons.ghn_connector.contanst.ghn_contanst import FuncName
-from odoo.addons.ghn_connector.contanst.ghn_contanst import Method
+from odoo.addons.ghn_connector.constants.ghn_constants import FuncName
+from odoo.addons.ghn_connector.constants.ghn_constants import Method
 _logger = logging.getLogger(__name__)
 
 

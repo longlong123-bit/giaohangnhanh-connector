@@ -1,8 +1,8 @@
 from odoo import fields, api, models, _
 from odoo.exceptions import UserError
 
-from odoo.addons.ghn_connector.contanst.ghn_contanst import Const
-from odoo.addons.ghn_connector.contanst.ghn_contanst import Message
+from odoo.addons.ghn_connector.constants.ghn_constants import Const
+from odoo.addons.ghn_connector.constants.ghn_constants import Message
 
 
 class GHNService(models.Model):

@@ -2,6 +2,13 @@
 <templates id="template" xml:space="preserve">
     <t t-name="Sync.Buttons" t-inherit="web.ListView.Buttons" t-inherit-mode="primary" owl="1">
         <xpath expr="(//div/*)[last()]" position="after">
+            <button t-if="props.resModel=='ghn.post.office'"
+                    type="button"
+                    class="btn btn-primary o_button_sync_post_offices"
+                    style="margin-left: 5px !important;"
+                    t-on-click="onClickSyncPostOffices">
+                Sync Post Offices
+            </button>
             <button t-if="props.resModel=='ghn.province'"
                     type="button"
                     class="btn btn-primary o_button_sync_province"

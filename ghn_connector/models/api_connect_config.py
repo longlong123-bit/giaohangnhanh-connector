@@ -1,5 +1,5 @@
-from odoo.addons.ghn_connector.contanst.ghn_contanst import Const
-from odoo.addons.ghn_connector.contanst.ghn_contanst import Message
+from odoo.addons.ghn_connector.constants.ghn_constants import Const
+from odoo.addons.ghn_connector.constants.ghn_constants import Message
 from odoo.addons.ghn_connector.api_conf.ghn_client import GHNClient
 from odoo import fields, models, _
 from odoo.exceptions import UserError
@@ -72,5 +72,11 @@ class ApiEndpointConfig(models.Model):
     api_connect_config_id = fields.Many2one('api.connect.config', string='Api connect config id')
     host = fields.Char(related='api_connect_config_id.host', string='Host')
     description = fields.Text(string='Description')
-    category = fields.Char(string='Category')
+    category = fields.Selection([
+        ('order', 'Order'),
+        ('cal_fee', 'Calculate Fee'),
+        ('store', 'Store'),
+        ('address', 'Address'),
+        ('webhook', 'Webhook'),
+        ('ticket', 'Ticket')], string='Category')
 

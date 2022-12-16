@@ -3,8 +3,9 @@ import base64
 from odoo import fields, models, api, _
 from datetime import datetime, timedelta
 from odoo.exceptions import UserError
-from odoo.addons.ghn_connector.contanst.ghn_contanst import Const
-from odoo.addons.ghn_connector.contanst.ghn_contanst import Message
+from odoo.addons.ghn_connector.constants.ghn_constants import Const
+from odoo.addons.ghn_connector.constants.ghn_constants import Message
+from odoo.addons.ghn_connector.bin_packer import Packer, Bin, Item
 
 
 class SaleOrderVTPost(models.Model):
@@ -23,7 +24,7 @@ class SaleOrderVTPost(models.Model):
     sender_fullname = fields.Char(related='ghn_store_id.name', string='Fullname')
     sender_phone = fields.Char(related='ghn_store_id.phone', string='Phone')
     sender_address = fields.Char(related='ghn_store_id.address', string='Street')
-    sender_province_id = fields.Many2one(related='ghn_store_id.pid', string='Province')
+    sender_province_id = fields.Many2one(string='Province')
     sender_district_id = fields.Many2one(related='ghn_store_id.did', string='District')
     sender_ward_id = fields.Many2one(related='ghn_store_id.wid', string='Ward')
     sender_cid = fields.Integer(related='ghn_store_id.cid', string='Cid')
@@ -37,18 +38,19 @@ class SaleOrderVTPost(models.Model):
     receiver_province_id = fields.Many2one(related='partner_id.ghn_province_id', string='Province')
 
     ghn_note = fields.Text(string='Note')
-    ghn_pick_shift_id = fields.Many2one('ghn.pick.shift', string='Pick shift')
+    ghn_pick_shift_ids = fields.One2many('ghn.pick.shift', 'sale_order_id', string='Pick shift')
     ghn_service_id = fields.Many2one('ghn.service', string='Service')
 
     def get_pick_shift(self):
         client = self.env['api.connect.config'].generate_client_api_ghn()
         res = client.get_pick_shift()
-        self.env['ghn.pick.shift'].create({
-            'name': res['title'],
-            'from_time': int(res['from_time']),
-            'to_time': int(res['to_time']),
-            'sale_order_id': self.id
-        })
+        for rec in res:
+            self.env['ghn.pick.shift'].create({
+                'name': rec['title'],
+                'from_time': datetime.fromtimestamp(rec['from_time']),
+                'to_time': datetime.fromtimestamp(rec['to_time']),
+                'sale_order_id': self.id
+            })
 
     def get_service(self):
         client = self.env['api.connect.config'].generate_client_api_ghn()
@@ -141,3 +143,24 @@ class SaleOrderVTPost(models.Model):
     #         })
     #     except Exception as e:
     #         raise UserError(_(f'Create waybill failed. {e}'))
+
+    def action_test_bin_packer(self):
+        lst_suggestions_bin = []
+        packer = Packer()
+        bin_packers = self.env['ghn.bin.packer'].search([])
+        for bin in bin_packers:
+            packer.add_bin(Bin(bin.name, bin.width, bin.height, bin.depth, bin.vol_weight))
+        for line in self.order_line:
+            product = line.product_id.product_tmpl_id
+            if line.product_id.product_tmpl_id.is_auto_compute_weight:
+                volumetric_weight = product.weight
+            else:
+                volumetric_weight = product.gross_width * product.gross_height * product.gross_length / 5000 * 1000
+            packer.add_item(Item(product.name, product.gross_width, product.gross_height, product.gross_length, volumetric_weight))
+        packer.pack()
+        for b in packer.bins:
+            if len(b.unfitted_items) > 0:
+                continue
+            lst_suggestions_bin.append(b)
+        return lst_suggestions_bin
+

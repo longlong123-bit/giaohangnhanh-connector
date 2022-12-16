@@ -69,4 +69,14 @@ export class ButtonListController extends ListController {
             },
         });
     }
+    async onClickSyncPostOffices() {
+        const action = await this.orm.call('ghn.post.office', 'sync_offices');
+        this.actionService.doAction(action, {
+            onClose: () => {
+                this.actionService.doAction({
+                'type': 'ir.actions.client',
+                'tag': 'reload'})
+            },
+        });
+    }
 }

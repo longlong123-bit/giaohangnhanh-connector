@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record model="ghn.bin.packer" id="ghn_pin_packer_1">
+            <field name="name">Nhỏ 1 - 20x15x10</field>
+            <field name="width">20.00</field>
+            <field name="height">15.00</field>
+            <field name="depth">10.00</field>
+            <field name="weight">100.00</field>
+            <field name="quantity">50.00</field>
+        </record>
+        <record model="ghn.bin.packer" id="ghn_pin_packer_2">
+            <field name="name">Nhỏ 2 - 30x20x15</field>
+            <field name="width">30.00</field>
+            <field name="height">20.00</field>
+            <field name="depth">15.00</field>
+            <field name="weight">100.00</field>
+            <field name="quantity">50.00</field>
+        </record>
+        <record model="ghn.bin.packer" id="ghn_pin_packer_3">
+            <field name="name">Trung 1 - 35x25x15</field>
+            <field name="width">35.00</field>
+            <field name="height">25.00</field>
+            <field name="depth">15.00</field>
+            <field name="weight">100.00</field>
+            <field name="quantity">50.00</field>
+        </record>
+        <record model="ghn.bin.packer" id="ghn_pin_packer_4">
+            <field name="name">Trung 2 - 35x30x25</field>
+            <field name="width">35.00</field>
+            <field name="height">30.00</field>
+            <field name="depth">25.00</field>
+            <field name="weight">100.00</field>
+            <field name="quantity">50.00</field>
+        </record>
+        <record model="ghn.bin.packer" id="ghn_pin_packer_5">
+            <field name="name">Lớn 1 - 40x35x41</field>
+            <field name="width">40.00</field>
+            <field name="height">35.00</field>
+            <field name="depth">41.00</field>
+            <field name="weight">100.00</field>
+            <field name="quantity">50.00</field>
+        </record>
+        <record model="ghn.bin.packer" id="ghn_pin_packer_6">
+            <field name="name">Lớn 2 - 43x24x29</field>
+            <field name="width">43.00</field>
+            <field name="height">24.00</field>
+            <field name="depth">29.00</field>
+            <field name="weight">100.00</field>
+            <field name="quantity">50.00</field>
+        </record>
+        <record model="ghn.bin.packer" id="ghn_pin_packer_7">
+            <field name="name">Lớn 3 - 50x40x15</field>
+            <field name="width">50.00</field>
+            <field name="height">40.00</field>
+            <field name="depth">15.00</field>
+            <field name="weight">100.00</field>
+            <field name="quantity">50.00</field>
+        </record>
+        <record model="ghn.bin.packer" id="ghn_pin_packer_8">
+            <field name="name">Lớn 4 - 60x50x35</field>
+            <field name="width">60.00</field>
+            <field name="height">50.00</field>
+            <field name="depth">35.00</field>
+            <field name="weight">100.00</field>
+            <field name="quantity">50.00</field>
+        </record>
+    </data>
+</odoo>

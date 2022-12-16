@@ -5,5 +5,9 @@
             <field name="key">product.product_in_mm</field>
             <field name="value">0</field>
         </record>
+        <record id="uom_gram_param" model="ir.config_parameter">
+            <field name="key">product.weight_in_gram</field>
+            <field name="value">1</field>
+        </record>
     </data>
 </odoo>

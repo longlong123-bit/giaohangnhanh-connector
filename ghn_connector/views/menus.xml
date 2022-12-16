@@ -23,21 +23,21 @@
               sequence="90"
               groups="base.group_system" />
     <!--    Menu ghn office-->
-<!--    <menuitem id="menu_ghn_office"-->
-<!--              name="Post Office"-->
-<!--              parent="menu_ghn_root"-->
-<!--              action="ghn_office_action_view"-->
-<!--              sequence="95"-->
-<!--              groups="base.group_system" />-->
+    <menuitem id="menu_ghn_office"
+              name="Post Office"
+              parent="menu_ghn_root"
+              action="ghn_office_action_view"
+              sequence="95"
+              groups="base.group_system" />
     <!--    Menu configuration-->
     <menuitem id="menu_ghn_configuration" parent="menu_ghn_root" name="Configuration" sequence="100" groups="base.group_system"/>
-<!--    <menuitem id="menu_ghn_variable_main" parent="menu_ghn_configuration" name="ViettelPost Variable" groups="base.group_system" sequence="1"/>-->
-<!--    <menuitem id="menu_product_type"-->
-<!--              parent="menu_ghn_variable_main"-->
-<!--              name="Product Type"-->
-<!--              sequence="1"-->
-<!--              action="ghn_product_type_action_view"-->
-<!--    />-->
+    <menuitem id="menu_ghn_bin_packer_main" parent="menu_ghn_configuration" name="Bin Packer Management" groups="base.group_system" sequence="1"/>
+    <menuitem id="menu_bin_packer"
+              parent="menu_ghn_bin_packer_main"
+              name="Bin Packer"
+              sequence="1"
+              action="ghn_bin_packer_action_view"
+    />
 <!--    <menuitem id="menu_national_type"-->
 <!--              parent="menu_ghn_variable_main"-->
 <!--              name="National Type"-->

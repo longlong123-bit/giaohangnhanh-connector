@@ -2,8 +2,8 @@ import logging
 from odoo.tools.translate import _
 from odoo.exceptions import UserError
 from .ghn_connection import GHNConnection
-from odoo.addons.ghn_connector.contanst.ghn_contanst import FuncName
-from odoo.addons.ghn_connector.contanst.ghn_contanst import Method
+from odoo.addons.ghn_connector.constants.ghn_constants import FuncName
+from odoo.addons.ghn_connector.constants.ghn_constants import Method
 _logger = logging.getLogger(__name__)
 
 
@@ -48,6 +48,11 @@ class GHNClient:
 
     def calculate_fee(self, payload):
         res = self.conn.execute_restful(FuncName.CalculateFee, Method.POST, **payload)
+        res = self.check_response(res)
+        return res
+
+    def sync_offices(self):
+        res = self.conn.execute_restful(FuncName.SyncPostOffices, Method.GET)
         res = self.check_response(res)
         return res
 
