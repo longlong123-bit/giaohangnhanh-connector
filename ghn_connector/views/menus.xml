@@ -15,13 +15,6 @@
               action="ghn_store_action_view"
               sequence="85"
               groups="base.group_system" />
-    <!--    Menu service-->
-    <menuitem id="menu_ghn_service"
-              name="Service"
-              parent="menu_ghn_root"
-              action="ghn_service_action_view"
-              sequence="90"
-              groups="base.group_system" />
     <!--    Menu ghn office-->
     <menuitem id="menu_ghn_office"
               name="Post Office"

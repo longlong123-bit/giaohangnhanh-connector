@@ -10,8 +10,8 @@ class GHNPinPacker(models.Model):
     width = fields.Float(string='Width', required=True, tracking=True)
     height = fields.Float(string='Height', required=True, tracking=True)
     depth = fields.Float(string='Depth', required=True, tracking=True)
-    vol_weight = fields.Float(string='Weight', compute='_compute_vol_weight', tracking=True)
-    volume = fields.Float(string='Volume', compute='_compute_volume', tracking=True)
+    vol_weight = fields.Float(string='Weight', compute='_compute_vol_weight', tracking=True, store=True)
+    volume = fields.Float(string='Volume', compute='_compute_volume', tracking=True, store=True)
     quantity = fields.Float(string='Quantity', tracking=True)
 
     cm_uom_name = fields.Char(string='Height unit of measure label', compute='_compute_cm_uom_name')

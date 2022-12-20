@@ -7,12 +7,13 @@ START_POSITION = [0, 0, 0]
 
 class Item:
     # def __init__(self, name, width, height, depth, weight):
-    def __init__(self, name, width, height, depth, weight):
+    def __init__(self, name, width, height, depth, weight, id):
         self.name = name
         self.width = width
         self.height = height
         self.depth = depth
         self.weight = weight
+        self.id = id
         self.rotation_type = 0
         self.position = START_POSITION
         self.number_of_decimals = DEFAULT_NUMBER_OF_DECIMALS
@@ -23,6 +24,11 @@ class Item:
         self.depth = set_to_decimal(self.depth, number_of_decimals)
         self.weight = set_to_decimal(self.weight, number_of_decimals)
         self.number_of_decimals = number_of_decimals
+
+    def string(self):
+        return "%s(%sx%sx%s, weight: %s) pos(%s) rt(%s) vol(%s)" % (
+            self.name, self.width, self.height, self.depth, self.weight,
+            self.position, self.rotation_type, self.get_volume())
 
     def get_volume(self):
         return set_to_decimal(
@@ -65,6 +71,12 @@ class Bin:
         self.depth = set_to_decimal(self.depth, number_of_decimals)
         self.max_weight = set_to_decimal(self.max_weight, number_of_decimals)
         self.number_of_decimals = number_of_decimals
+
+    def string(self):
+        return "%s(%sx%sx%s, max_weight:%s) vol(%s)" % (
+            self.name, self.width, self.height, self.depth, self.max_weight,
+            self.get_volume()
+        )
 
     def get_volume(self):
         return set_to_decimal(

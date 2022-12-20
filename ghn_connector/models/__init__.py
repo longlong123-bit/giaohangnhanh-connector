@@ -10,6 +10,7 @@ from . import ghn_store
 from . import ghn_pick_shift
 from . import ghn_service
 from . import ghn_post_office
+from . import ghn_payment_type
 from . import res_partner
 from . import sale_order
 

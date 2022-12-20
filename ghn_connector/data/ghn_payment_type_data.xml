@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record model="ghn.payment.type" id="ghn_payment_type_1">
+            <field name="name">Người bán/Người gửi</field>
+            <field name="code">1</field>
+        </record>
+        <record model="ghn.payment.type" id="ghn_payment_type_2">
+            <field name="name">Người mua/Người nhận</field>
+            <field name="code">2</field>
+        </record>
+    </data>
+</odoo>

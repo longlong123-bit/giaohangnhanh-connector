@@ -12,3 +12,7 @@ access_ghn_post_office,ghn_post_office,model_ghn_post_office,base.group_system,1
 access_ghn_bin_packer,ghn_bin_packer,model_ghn_bin_packer,base.group_system,1,1,1,1
 access_create_store_wizard,create_store_wizard,model_create_store_wizard,base.group_system,1,1,1,1
 access_sale_order,sale_order,model_sale_order,base.group_system,1,1,1,1
+access_ghn_bin_packer_sale_order,ghn_bin_packer_sale_order,model_ghn_bin_packer_sale_order,base.group_system,1,1,1,1
+access_ghn_pick_shift,ghn_pick_shift,model_ghn_pick_shift,base.group_system,1,1,1,1
+access_ghn_require_note,ghn_require_note,model_ghn_require_note,base.group_system,1,1,1,1
+access_ghn_payment_type,ghn_payment_type,model_ghn_payment_type,base.group_system,1,1,1,1

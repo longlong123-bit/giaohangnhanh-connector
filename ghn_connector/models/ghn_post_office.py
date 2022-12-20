@@ -1,3 +1,4 @@
+import html
 from odoo import fields, api, models, _
 from odoo.exceptions import UserError
 
@@ -19,7 +20,7 @@ class GHNPostOffice(models.Model):
     address = fields.Char(string='Address')
     latitude = fields.Char(string='Latitude')
     longitude = fields.Char(string='Longitude')
-    iframe_map = fields.Html(string='Iframe map')
+    iframe_map = fields.Char(string='Iframe map')
     delivery_carrier_id = fields.Many2one('delivery.carrier', string='Delivery Carrier')
 
     @api.model

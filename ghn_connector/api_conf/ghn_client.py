@@ -36,12 +36,12 @@ class GHNClient:
         res = self.check_response(res)
         return res
 
-    def get_pick_shift(self):
+    def get_list_pick_shift(self):
         res = self.conn.execute_restful(FuncName.GetPickShift, Method.GET)
         res = self.check_response(res)
         return res
 
-    def get_service(self, payload):
+    def get_list_service(self, payload):
         res = self.conn.execute_restful(FuncName.GetServices, Method.POST, **payload)
         res = self.check_response(res)
         return res
@@ -53,6 +53,16 @@ class GHNClient:
 
     def sync_offices(self):
         res = self.conn.execute_restful(FuncName.SyncPostOffices, Method.GET)
+        res = self.check_response(res)
+        return res
+
+    def create_waybill(self, payload):
+        res = self.conn.execute_restful(FuncName.CreateOrder, Method.POST, **payload)
+        res = self.check_response(res)
+        return res
+
+    def cancel_order(self, payload):
+        res = self.conn.execute_restful(FuncName.CancelOrder, Method.POST, **payload)
         res = self.check_response(res)
         return res
 

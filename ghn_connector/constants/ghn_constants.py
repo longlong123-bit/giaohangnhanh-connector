@@ -1,6 +1,14 @@
 class Const:
     BASE_CODE = 'ghn_base_url'
     DELIVERY_CARRIER_CODE = 'ghn'
+    REQUIRE_NOTE_DEFAULT = 'CHOXEMHANGKHONGTHU'
+    PAYMENT_TYPE_DEFAULT = '1'
+    MAXIMUM_DEPTH_SIZE_PACKER = 150
+    MAXIMUM_WEIGHT_SIZE_PACKER = 30000
+    MAXIMUM_WIDTH_SIZE_PACKER = 150
+    MAXIMUM_HEIGHT_SIZE_PACKER = 150
+    MAXIMUM_INSURANCE_VALUE = 5000000
+    MAXIMUM_COD_VALUE = 10000000
 
 
 class Message:
@@ -19,6 +27,8 @@ class FuncName:
     GetServices = 'GetServices'
     CalculateFee = 'CalculateFee'
     SyncPostOffices = 'SyncPostOffices'
+    CreateOrder = 'CreateOrder'
+    CancelOrder = 'CancelOrder'
 
 
 class Method:

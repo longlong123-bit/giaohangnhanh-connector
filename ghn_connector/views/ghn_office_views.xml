@@ -17,12 +17,12 @@
                         <group>
                             <field name="email"/>
                             <field name="code"/>
-                            <field name="office_id"/>
                             <field name="latitude"/>
                             <field name="longitude"/>
+                            <field name="office_id" invisible="1"/>
                             <field name="delivery_carrier_id" invisible="1"/>
                         </group>
-                        <field name="iframe_map"/>
+                        <field name="iframe_map" widget="html"/>
                     </group>
                 </sheet>
             </form>

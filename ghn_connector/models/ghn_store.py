@@ -14,6 +14,7 @@ class ViettelPostStore(models.Model):
     name = fields.Char(string='Name', required=True, tracking=True)
     phone = fields.Char(string='Phone', required=True, tracking=True)
     address = fields.Char(string='Address', required=True, tracking=True)
+    pid = fields.Many2one('ghn.province', string='Province', required=True, tracking=True)
     did = fields.Many2one('ghn.district', string='District', required=True, tracking=True)
     wid = fields.Many2one('ghn.ward', string='Ward', required=True, tracking=True)
     clid = fields.Integer(string='Client Id', readonly=True)
@@ -40,6 +41,7 @@ class ViettelPostStore(models.Model):
                         'name': data['name'],
                         'phone': data['phone'],
                         'address': data['address'],
+                        'pid': district_id.pid.id,
                         'did': district_id.id,
                         'wid': ward_id.id,
                         'clid': data['client_id'],

@@ -6,7 +6,7 @@
             <field name="width">20.00</field>
             <field name="height">15.00</field>
             <field name="depth">10.00</field>
-            <field name="weight">100.00</field>
+            <field name="vol_weight">100.00</field>
             <field name="quantity">50.00</field>
         </record>
         <record model="ghn.bin.packer" id="ghn_pin_packer_2">
@@ -14,7 +14,7 @@
             <field name="width">30.00</field>
             <field name="height">20.00</field>
             <field name="depth">15.00</field>
-            <field name="weight">100.00</field>
+            <field name="vol_weight">100.00</field>
             <field name="quantity">50.00</field>
         </record>
         <record model="ghn.bin.packer" id="ghn_pin_packer_3">
@@ -22,7 +22,7 @@
             <field name="width">35.00</field>
             <field name="height">25.00</field>
             <field name="depth">15.00</field>
-            <field name="weight">100.00</field>
+            <field name="vol_weight">100.00</field>
             <field name="quantity">50.00</field>
         </record>
         <record model="ghn.bin.packer" id="ghn_pin_packer_4">
@@ -30,7 +30,7 @@
             <field name="width">35.00</field>
             <field name="height">30.00</field>
             <field name="depth">25.00</field>
-            <field name="weight">100.00</field>
+            <field name="vol_weight">100.00</field>
             <field name="quantity">50.00</field>
         </record>
         <record model="ghn.bin.packer" id="ghn_pin_packer_5">
@@ -38,7 +38,7 @@
             <field name="width">40.00</field>
             <field name="height">35.00</field>
             <field name="depth">41.00</field>
-            <field name="weight">100.00</field>
+            <field name="vol_weight">100.00</field>
             <field name="quantity">50.00</field>
         </record>
         <record model="ghn.bin.packer" id="ghn_pin_packer_6">
@@ -46,7 +46,7 @@
             <field name="width">43.00</field>
             <field name="height">24.00</field>
             <field name="depth">29.00</field>
-            <field name="weight">100.00</field>
+            <field name="vol_weight">100.00</field>
             <field name="quantity">50.00</field>
         </record>
         <record model="ghn.bin.packer" id="ghn_pin_packer_7">
@@ -54,7 +54,7 @@
             <field name="width">50.00</field>
             <field name="height">40.00</field>
             <field name="depth">15.00</field>
-            <field name="weight">100.00</field>
+            <field name="vol_weight">100.00</field>
             <field name="quantity">50.00</field>
         </record>
         <record model="ghn.bin.packer" id="ghn_pin_packer_8">
@@ -62,7 +62,7 @@
             <field name="width">60.00</field>
             <field name="height">50.00</field>
             <field name="depth">35.00</field>
-            <field name="weight">100.00</field>
+            <field name="vol_weight">100.00</field>
             <field name="quantity">50.00</field>
         </record>
     </data>

@@ -6,90 +6,116 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <button name="action_quotation_send" position="before">
-                <button name="action_test_bin_packer" class="btn btn-primary" type="object" string="Bin packer"/>
+                <button name="action_create_waybill_code" attrs="{'invisible': [('state', '!=', 'sale')]}" class="btn btn-primary" type="object" string="Create waybill"/>
+            </button>
+            <button name="action_cancel" position="before">
+                <button name="get_list_service" attrs="{'invisible': ['|', ('is_get_service', '=', True), ('ghn_store_id', '=', False)]}" string="Get list services" type="object"/>
+                <button name="get_list_pick_shift" attrs="{'invisible': ['|', ('is_get_pick_shift', '=', True), ('ghn_store_id', '=', False)]}" string="Get list pick shift" type="object"/>
             </button>
             <field name="payment_term_id" position="after">
                 <field name="delivery_carrier_id" attrs="{'invisible': [('state', '!=', 'sale')]}"/>
             </field>
-<!--            <button name="action_quotation_send" position="before">-->
-<!--                <button name="action_create_waybill_code" attrs="{'invisible': [('state', '!=', 'sale')]}" class="btn btn-primary" type="object" string="Create waybill"/>-->
-<!--            </button>-->
-<!--            <button name="action_cancel" position="before">-->
-<!--                <button name="get_list_service" attrs="{'invisible': ['|', ('is_check_service', '=', True), ('delivery_carrier_vtp_id', '=', False)]}" string="Get a list of services that match itinerary" type="object"/>-->
-<!--            </button>-->
-<!--            <xpath expr="//notebook" position="before">-->
-<!--                <group string="ViettelPost Information" attrs="{'invisible': [('waybill_code', '=', False)]}">-->
-<!--                    <group>-->
-<!--                        <field name="waybill_code"/>-->
-<!--                        <field name="exchange_weight"/>-->
-<!--                        <field name="actual_kpi_ht"/>-->
-<!--                        <field name="money_collection"/>-->
-<!--                        <field name="waybill_status" attrs="{'invisible': [('waybill_status', '=', False)]}"/>-->
-<!--                        <field name="tracking_link" widget="url"/>-->
-<!--                    </group>-->
-<!--                    <group>-->
-<!--                        <field name="money_total_fee"/>-->
-<!--                        <field name="money_fee"/>-->
-<!--                        <field name="money_other_fee"/>-->
-<!--                        <field name="money_collection_fee"/>-->
-<!--                        <field name="money_vat"/>-->
-<!--                        <field name="money_total"/>-->
-<!--                    </group>-->
-<!--                </group>-->
-<!--                <group string="Shipment details" attrs="{'invisible': [('delivery_carrier_vtp_id', '=', False)]}">-->
-<!--                    <group>-->
-<!--                        <field name="vtp_store_id" attrs="{'required': [('state', '=', 'sale')]}"/>-->
-<!--                        <field name="vtp_lst_service_id" attrs="{'invisible': [('is_check_service', '=', False)], 'required': [('is_check_service', '=', True)]}"/>-->
-<!--                        <field name="vtp_lst_extent_service_id" attrs="{'invisible': [('vtp_lst_service_id', '=', False)]}"/>-->
-<!--                        <field name="is_check_service" invisible="1"/>-->
-<!--                    </group>-->
-<!--                    <group>-->
-<!--                        <field name="vtp_product_type_id" attrs="{'required': [('state', '=', 'sale')]}"/>-->
-<!--                        <field name="vtp_national_type_id" attrs="{'required': [('state', '=', 'sale')]}"/>-->
-<!--                        <field name="vtp_waybill_type_id" attrs="{'required': [('state', '=', 'sale')]}"/>-->
-<!--                    </group>-->
-<!--                </group>-->
-<!--                <group>-->
-<!--                    <group string="Place of sender" attrs="{'invisible': [('delivery_carrier_vtp_id', '=', False)]}">-->
-<!--                        <field name="sender_fullname"/>-->
-<!--                        <field name="sender_phone" widget="phone"/>-->
-<!--                        <field name="sender_email" widget="email"/>-->
-<!--                        <field name="sender_address"/>-->
-<!--                        <field name="sender_ward_id"/>-->
-<!--                        <field name="sender_district_id"/>-->
-<!--                        <field name="sender_province_id"/>-->
-<!--                        <field name="vtp_note" placeholder="Note something in the bill of lading"/>-->
-<!--                        <field name="sender_groupaddress_id" invisible="1"/>-->
-<!--                        <field name="sender_cus_id" invisible="1"/>-->
-<!--                    </group>-->
-<!--                    <group string="Place of receiver" attrs="{'invisible': [('delivery_carrier_vtp_id', '=', False)]}">-->
-<!--                        <field name="receiver_fullname"/>-->
-<!--                        <field name="receiver_phone" widget="phone"/>-->
-<!--                        <field name="receiver_email" widget="email"/>-->
-<!--                        <field name="receiver_street"/>-->
-<!--                        <field name="receiver_ward_id"/>-->
-<!--                        <field name="receiver_district_id"/>-->
-<!--                        <field name="receiver_province_id"/>-->
-<!--                    </group>-->
-<!--                </group>-->
-<!--            </xpath>-->
+            <xpath expr="//notebook" position="before">
+                <group string="Waybill Information" attrs="{'invisible': [('waybill_code', '=', False)]}">
+                    <group>
+                        <field name="waybill_code"/>
+                        <field name="total_fee"/>
+                        <field name="expected_delivery_time"/>
+                    </group>
+                </group>
+                <group string="Shipment Information" attrs="{'invisible': [('delivery_carrier_id', '=', False)]}">
+                    <group>
+                        <field name="ghn_store_id" attrs="{'required': [('state', '=', 'sale')]}"/>
+                        <field name="ghn_payment_type_id" options="{'no_create_edit': True}"/>
+                        <field name="ghn_require_note"/>
+                        <field name="ghn_content"/>
+                    </group>
+                    <group>
+                        <field name="ghn_service_id" attrs="{'invisible': [('is_get_service', '=', False)]}"/>
+                        <field name="ghn_cod_amount"/>
+                        <field name="ghn_pickup_time"/>
+                        <field name="ghn_pick_shift_id" attrs="{'invisible': [('is_get_pick_shift', '=', False)]}"/>
+                        <field name="ghn_post_office_id" />
+                        <field name="is_get_pick_shift" invisible="1"/>
+                        <field name="is_get_service" invisible="1"/>
+                    </group>
+                </group>
+            </xpath>
 
-<!--            <xpath expr="//notebook/page[last()]" position="after">-->
-<!--                <page string="List services math itinerary" attrs="{'invisible': [('delivery_carrier_vtp_id', '=', False)]}" name="lst_service" groups="base.group_system">-->
-<!--                    <field name="list_service_supported_ids" widget="section_and_note_one2many" mode="tree,kanban">-->
-<!--                        <form create="0" edit="0">-->
-<!--                            <field name="service_id" />-->
-<!--                            <field name="kpi_ht"/>-->
-<!--                            <field name="money_total"/>-->
-<!--                        </form>-->
-<!--                        <tree create="0" edit="0">-->
-<!--                            <field name="service_id" />-->
-<!--                            <field name="kpi_ht"/>-->
-<!--                            <field name="money_total" widget="monetary"/>-->
-<!--                        </tree>-->
-<!--                    </field>-->
-<!--                </page>-->
-<!--            </xpath>-->
+            <xpath expr="//notebook/page[last()]" position="after">
+                <page string="Shipment Details">
+                    <group attrs="{'invisible': [('delivery_carrier_id', '=', False)]}">
+                        <group string="Place of sender">
+                            <field name="sender_fullname"/>
+                            <field name="sender_phone" widget="phone"/>
+                            <field name="sender_address"/>
+                            <field name="sender_ward_id"/>
+                            <field name="sender_district_id"/>
+                            <field name="sender_province_id"/>
+                            <field name="ghn_note" placeholder="The note for shipper"/>
+                        </group>
+                        <group string="Place of receiver">
+                            <field name="receiver_fullname"/>
+                            <field name="receiver_phone" widget="phone"/>
+                            <field name="receiver_email" widget="email"/>
+                            <field name="receiver_street"/>
+                            <field name="receiver_ward_id"/>
+                            <field name="receiver_district_id"/>
+                            <field name="receiver_province_id"/>
+                        </group>
+                    </group>
+                </page>
+                <page string="Input size bin packer" attrs="{'invisible': [('delivery_carrier_id', '=', False)]}" name="bin_packer" groups="base.group_system">
+                    <button name="action_find_bin_packer" class="btn btn-primary mb-2" type="object" string="Bin packer suggest"/>
+                    <field name="ghn_bin_packer_ids" >
+                        <tree>
+                            <field name="name"/>
+                            <field name="vol_weight"/>
+                            <field name="quantity"/>
+                            <field name="width"/>
+                            <field name="height"/>
+                            <field name="depth"/>
+                            <field name="product_ids" widget="many2many_tags"/>
+                            <button name="action_save_bin_packer" class="btn btn-primary" type="object" string="Save bin packer"/>
+                        </tree>
+                        <form>
+                            <group>
+                                <group>
+                                    <field name="name"/>
+                                    <label for="vol_weight"/>
+                                    <div class="o_row" name="vol_weight">
+                                        <field name="vol_weight" class="oe_inline"/>
+                                        <field name="weight_uom_name"/>
+                                    </div>
+                                    <label for="volume"/>
+                                    <div class="o_row" name="volume">
+                                        <field name="volume" class="oe_inline"/>
+                                        <field name="volume_uom_name"/>
+                                    </div>
+                                </group>
+                                <group>
+                                    <label for="width"/>
+                                    <div class="o_row" name="width">
+                                        <field name="width" class="oe_inline"/>
+                                        <field name="cm_uom_name"/>
+                                    </div>
+                                    <label for="height"/>
+                                    <div class="o_row" name="height">
+                                        <field name="height" class="oe_inline"/>
+                                        <field name="cm_uom_name"/>
+                                    </div>
+                                    <label for="depth"/>
+                                    <div class="o_row" name="depth">
+                                        <field name="depth" class="oe_inline"/>
+                                        <field name="cm_uom_name"/>
+                                    </div>
+                                </group>
+                                <field name="product_ids" widget="many2many_tags"/>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
         </field>
     </record>
 </odoo>

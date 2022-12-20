@@ -6,12 +6,12 @@
             <field name="code">CHOTHUHANG</field>
             <field name="description">Người mua có thể yêu cầu xem và dùng thử hàng hóa</field>
         </record>
-        <record model="ghn.require.note" id="ghn_require_note_1">
+        <record model="ghn.require.note" id="ghn_require_note_2">
             <field name="name">Cho xem hàng không thử</field>
             <field name="code">CHOXEMHANGKHONGTHU</field>
             <field name="description">Người mua được xem hàng nhưng không được dùng thử hàng</field>
         </record>
-        <record model="ghn.require.note" id="ghn_require_note_1">
+        <record model="ghn.require.note" id="ghn_require_note_3">
             <field name="name">Không cho xem hàng</field>
             <field name="code">KHONGCHOXEMHANG</field>
             <field name="description">Người mua không được xem hàng</field>

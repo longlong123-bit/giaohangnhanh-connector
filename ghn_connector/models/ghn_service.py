@@ -1,62 +1,21 @@
-from odoo import fields, api, models, _
-from odoo.exceptions import UserError
-
-from odoo.addons.ghn_connector.constants.ghn_constants import Const
-from odoo.addons.ghn_connector.constants.ghn_constants import Message
+from odoo import fields, models, api
 
 
 class GHNService(models.Model):
     _name = 'ghn.service'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
-    _description = 'List GHN Service'
+    _description = 'List of supported services of Giao Hang Nhanh'
 
-    name = fields.Char(string='Name')
-    code = fields.Integer(string='Code')
-    type = fields.Integer(string='Type')
-    delivery_carrier_id = fields.Many2one('delivery.carrier', string='Delivery Carrier')
+    name = fields.Char(string='Name', required=True)
+    service_type_id = fields.Integer(string='Service Type Id')
+    service_id = fields.Integer(string='Service Id')
+    sale_order_id = fields.Many2one('sale.order', string='Sale order')
 
-    @api.model
-    # def sync_service(self):
-    #     client = self.env['api.connect.config'].generate_client_api_ghn()
-    #     try:
-    #         delivery_carrier_id = self.env['delivery.carrier'].search(
-    #             [('delivery_carrier_code', '=', Const.DELIVERY_CARRIER_CODE)])
-    #         if not delivery_carrier_id:
-    #             raise UserError(_(Message.MSG_NOT_CARRIER))
-    #         payload = {'TYPE': Const.TYPE_SERVICE}
-    #         dataset = client.get_services(payload)
-    #         if len(dataset) > 0:
-    #             for data in dataset:
-    #                 service_id = self.search([('code', '=', data['SERVICE_CODE'])])
-    #                 dict_service = {
-    #                     'name': data['SERVICE_NAME'],
-    #                     'code': data['SERVICE_CODE'],
-    #                     'delivery_carrier_id': delivery_carrier_id.id
-    #                 }
-    #                 if not service_id:
-    #                     self.create(dict_service)
-    #                 else:
-    #                     service_id.write(dict_service)
-    #         return {
-    #             "type": "ir.actions.client",
-    #             "tag": "display_notification",
-    #             "params": {
-    #                 "title": _("Sync Service Successfully!"),
-    #                 "type": "success",
-    #                 "message": _(Message.MSG_ACTION_SUCCESS),
-    #                 "sticky": False,
-    #                 "next": {"type": "ir.actions.act_window_close"},
-    #             },
-    #         }
-    #     except Exception as e:
-    #         raise UserError(_(f'Sync service failed. Error: {str(e)}'))
-
-    @api.depends('name', 'code')
+    @api.depends('name', 'service_id')
     def name_get(self):
         res = []
         for record in self:
             name = record.name
-            if record.code:
-                name = f'[{record.code}] - {name}'
+            if record.service_id:
+                name = f'[{record.service_id}] - {name}'
             res.append((record.id, name))
         return res
