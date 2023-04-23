@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="giaohangnhanh_store_form_view" model="ir.ui.view">
+        <field name="name">giaohangnhanh.store.form.view</field>
+        <field name="model">giaohangnhanh.store</field>
+        <field name="arch" type="xml">
+            <form string="Store" create="0" edit="0" import="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="phone"/>
+                        </group>
+                        <group>
+                            <field name="address"/>
+                            <field name="pid"/>
+                            <field name="did"/>
+                            <field name="wid"/>
+                            <field name="version_no"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                     <field name="message_follower_ids" widget="mail_followers"/>
+                     <field name="message_ids" colspan="4" widget="mail_thread" nolabel="1"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="giaohangnhanh_store_tree_view" model="ir.ui.view">
+        <field name="name">giaohangnhanh.store.tree.view</field>
+        <field name="model">giaohangnhanh.store</field>
+        <field name="arch" type="xml">
+            <tree string="Store" create="0" export_xlsx="0" js_class="override_btn">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="address"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="giaohangnhanh_store_search_view" model="ir.ui.view">
+        <field name="name">giaohangnhanh.store.search.view</field>
+        <field name="model">giaohangnhanh.store</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="address"/>
+                <field name="pid"/>
+                <field name="did"/>
+                <field name="wid"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="giaohangnhanh_store_action_view">
+        <field name="name">Stores</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">giaohangnhanh.store</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('giaohangnhanh_store_tree_view')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('giaohangnhanh_store_form_view')})]"/>
+        <field name="search_view_id" ref="giaohangnhanh_store_search_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new store.
+            </p>
+        </field>
+    </record>
+</odoo>

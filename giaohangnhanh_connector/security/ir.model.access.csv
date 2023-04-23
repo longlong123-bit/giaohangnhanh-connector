@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_giaohangnhanh_province,ghn_province,model_giaohangnhanh_province,base.group_system,1,1,1,1
+access_giaohangnhanh_district,ghn_district,model_giaohangnhanh_district,base.group_system,1,1,1,1
+access_giaohangnhanh_ward,ghn_ward,model_giaohangnhanh_ward,base.group_system,1,1,1,1
+access_giaohangnhanh_status,ghn_status,model_giaohangnhanh_status,base.group_system,1,1,1,1
+access_giaohangnhanh_store,ghn_store,model_giaohangnhanh_store,base.group_system,1,1,1,1
+access_giaohangnhanh_service,ghn_service,model_giaohangnhanh_service,base.group_system,1,1,1,1
+access_giaohangnhanh_post_office,ghn_post_office,model_giaohangnhanh_office,base.group_system,1,1,1,1
+access_create_store_wizard,create_store_wizard,model_create_store_wizard,base.group_system,1,1,1,1
+access_giaohangnhanh_require_note,ghn_require_note,model_giaohangnhanh_require_note,base.group_system,1,1,1,1
+access_giaohangnhanh_payment_type,ghn_payment_type,model_giaohangnhanh_payment_type,base.group_system,1,1,1,1

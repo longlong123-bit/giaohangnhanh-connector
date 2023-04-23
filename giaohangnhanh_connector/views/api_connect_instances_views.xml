@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="api_connect_instances_form_view_inherit_ghn">
+        <field name="name">api.connect.instances.form.view.inherit.ghn</field>
+        <field name="model">api.connect.instances</field>
+        <field name="priority">110</field>
+        <field name="inherit_id" ref="api_connect_instances.api_connect_instance_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header[hasclass('o_header_extend')]">
+                <button type="action"
+                        name="%(giaohangnhanh_connector.set_token_wizard_action)d"
+                        string="Set token"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('code', '!=', 'giaohangnhanh')]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

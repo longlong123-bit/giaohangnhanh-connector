@@ -1,0 +1,81 @@
+<odoo>
+    <data noupdate="1">
+        <record id="endpoint_id_1" model="api.endpoint.config">
+            <field name="name">SyncProvinces</field>
+            <field name="endpoint">/shiip/public-api/master-data/province</field>
+            <field name="instance_id" ref="giaohangnhanh_connector.api_instance_giaohangnhanh" />
+            <field name="description">Provinces data synchronous</field>
+        </record>
+
+        <record id="endpoint_id_2" model="api.endpoint.config">
+            <field name="name">SyncDistricts</field>
+            <field name="endpoint">/shiip/public-api/master-data/district</field>
+            <field name="instance_id" ref="giaohangnhanh_connector.api_instance_giaohangnhanh" />
+            <field name="description">Districts data synchronous</field>
+        </record>
+
+        <record id="endpoint_id_3" model="api.endpoint.config">
+            <field name="name">SyncWards</field>
+            <field name="endpoint">/shiip/public-api/master-data/ward?district_id=-1</field>
+            <field name="instance_id" ref="giaohangnhanh_connector.api_instance_giaohangnhanh" />
+            <field name="description">Wards data synchronous</field>
+        </record>
+
+        <record id="endpoint_id_4" model="api.endpoint.config">
+            <field name="name">SyncStores</field>
+            <field name="endpoint">/shiip/public-api/v2/shop/all</field>
+            <field name="instance_id" ref="giaohangnhanh_connector.api_instance_giaohangnhanh" />
+            <field name="description">Stores data synchronous</field>
+        </record>
+
+        <record id="endpoint_id_5" model="api.endpoint.config">
+            <field name="name">GenerateStore</field>
+            <field name="endpoint">/shiip/public-api/v2/shop/register</field>
+            <field name="instance_id" ref="giaohangnhanh_connector.api_instance_giaohangnhanh" />
+            <field name="description">Generate a store to the Giao Hang Nhanh Dashboard</field>
+        </record>
+
+        <record id="endpoint_id_6" model="api.endpoint.config">
+            <field name="name">SyncPostOffices</field>
+            <field name="endpoint">/shiip/public-api/v2/station/get</field>
+            <field name="instance_id" ref="giaohangnhanh_connector.api_instance_giaohangnhanh" />
+            <field name="description">Post offices data synchronous</field>
+        </record>
+
+        <record id="endpoint_id_7" model="api.endpoint.config">
+            <field name="name">CreateOrder</field>
+            <field name="endpoint">/shiip/public-api/v2/shipping-order/create</field>
+            <field name="instance_id" ref="giaohangnhanh_connector.api_instance_giaohangnhanh" />
+            <field name="description">Create a order</field>
+        </record>
+
+        <record id="endpoint_id_8" model="api.endpoint.config">
+            <field name="name">GetPickShift</field>
+            <field name="endpoint">/shiip/public-api/v2/shift/date</field>
+            <field name="instance_id" ref="giaohangnhanh_connector.api_instance_giaohangnhanh" />
+            <field name="description">Get list pick shift</field>
+        </record>
+
+        <record id="endpoint_id_9" model="api.endpoint.config">
+            <field name="name">CancelOrder</field>
+            <field name="endpoint">/shiip/public-api/v2/switch-status/cancel</field>
+            <field name="instance_id" ref="giaohangnhanh_connector.api_instance_giaohangnhanh" />
+            <field name="description">Cancel a order</field>
+        </record>
+
+        <record id="endpoint_id_10" model="api.endpoint.config">
+            <field name="name">GetServices</field>
+            <field name="endpoint">/shiip/public-api/v2/shipping-order/available-services</field>
+            <field name="instance_id" ref="giaohangnhanh_connector.api_instance_giaohangnhanh" />
+            <field name="description">Get a service supported</field>
+        </record>
+
+        <record id="endpoint_id_11" model="api.endpoint.config">
+            <field name="name">CalculateFee</field>
+            <field name="endpoint">/shiip/public-api/v2/shipping-order/fee</field>
+            <field name="instance_id" ref="giaohangnhanh_connector.api_instance_giaohangnhanh" />
+            <field name="description">Calculate fee service of order</field>
+        </record>
+
+    </data>
+</odoo>

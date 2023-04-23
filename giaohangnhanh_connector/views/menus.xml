@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="menu_ghn_root"
+              name="Giao Hang Nhanh"
+              parent="api_connect_instances.menu_api_connect_instance_root"
+              sequence="1"
+              groups="base.group_system"
+    />
+
+    <menuitem id="menu_ghn_resources_main"
+              parent="menu_ghn_root"
+              name="Giao Hang Nhanh Resources"
+              sequence="1"
+    />
+
+    <menuitem id="menu_ghn_status"
+              name="Status"
+              parent="menu_ghn_resources_main"
+              action="giaohangnhanh_status_action_view"
+              sequence="1"
+              groups="base.group_system"
+    />
+
+    <menuitem id="menu_ghn_address_main"
+              parent="menu_ghn_root"
+              name="Giao Hang Nhanh Address"
+              sequence="10"
+    />
+
+    <menuitem id="menu_province"
+              parent="menu_ghn_address_main"
+              name="Provinces"
+              action="giaohangnhanh_province_action_view"
+              sequence="1"
+    />
+
+    <menuitem id="menu_district"
+              parent="menu_ghn_address_main"
+              name="Districts"
+              action="giaohangnhanh_district_action_view"
+              sequence="2"
+    />
+
+    <menuitem id="menu_ward"
+              parent="menu_ghn_address_main"
+              name="Wards"
+              action="giaohangnhanh_ward_action_view"
+              sequence="3"
+    />
+
+    <menuitem id="menu_ghn_store"
+              name="Store"
+              parent="menu_ghn_root"
+              action="giaohangnhanh_store_action_view"
+              sequence="20"
+    />
+
+    <menuitem id="menu_ghn_office"
+              name="Post Office"
+              parent="menu_ghn_root"
+              action="giaohangnhanh_office_action_view"
+              sequence="30"
+    />
+</odoo>

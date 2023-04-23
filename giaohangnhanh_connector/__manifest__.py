@@ -1,0 +1,57 @@
+{
+    'name': 'Giao Hang Nhanh (GHN) Connector',
+    'version': '13.0.1.0',
+    'summary': 'Connect Odoo Application with Giao Hang Nhanh Carrier.',
+    'description': """
+        The Odoo Giao Hang Nhanh (GHN) Connector module is an integrated product between the odoo application and the carrier Giao Hang Nhanh. 
+        The application provides features, which through the api to manipulate directly into the dashboard of Giao Hang Nhanh.
+    """,
+    'category': 'Sales/Connector',
+    'support': 'odoo.tangerine@gmail.com',
+    'author': 'Tangerine',
+    'license': 'OPL-1',
+    'depends': [
+        'base',
+        'mail',
+        'sale',
+        'product',
+        'stock',
+        'delivery',
+        'contacts',
+        'api_connect_instances'
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/res_partner_data.xml',
+        'data/sequence.xml',
+        'data/uom_uom_data.xml',
+        'data/ir_config_parameter.xml',
+        'data/delivery_carrier_data.xml',
+        'data/api_connect_instance_data.xml',
+        'data/api_endpoints_config_data.xml',
+        'data/giaohangnhanh_payment_type_data.xml',
+        'data/giaohangnhanh_require_note_data.xml',
+        'data/giaohangnhanh_status_data.xml',
+        'wizard/set_token_wizard_views.xml',
+        'wizard/create_store_wizard_views.xml',
+        # 'views/delivery_carrier_views.xml',
+        # 'views/sale_order_views.xml',
+        'views/assets.xml',
+        'views/res_partner_views.xml',
+        'views/product_template_views.xml',
+        'views/api_connect_instances_views.xml',
+        'views/giaohangnhanh_status_views.xml',
+        'views/giaohangnhanh_require_note_views.xml',
+        'views/giaohangnhanh_office_views.xml',
+        'views/giaohangnhanh_store_views.xml',
+        'views/giaohangnhanh_province_views.xml',
+        'views/giaohangnhanh_district_views.xml',
+        'views/giaohangnhanh_ward_views.xml',
+        'views/menus.xml'
+    ],
+    'qweb': ['static/src/xml/buttons.xml'],
+    'images': ['static/description/thumbnail.png'],
+    'application': True,
+    'currency': 'USD',
+    'price': '62.00'
+}

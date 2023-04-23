@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="giaohangnhanh_district_form_view" model="ir.ui.view">
+        <field name="name">giaohangnhanh.district.form.view</field>
+        <field name="model">giaohangnhanh.district</field>
+        <field name="arch" type="xml">
+            <form string="District">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="pid"/>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Ward" name="ward">
+                            <field name="ward_ids">
+                                <tree editable="bottom" create="0" edit="0">
+                                    <field name="did"/>
+                                    <field name="name"/>
+                                    <field name="code"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                     <field name="message_follower_ids" widget="mail_followers"/>
+                     <field name="message_ids" colspan="4" widget="mail_thread" nolabel="1"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="giaohangnhanh_district_tree_view" model="ir.ui.view">
+        <field name="name">giaohangnhanh.district.tree.view</field>
+        <field name="model">giaohangnhanh.district</field>
+        <field name="arch" type="xml">
+            <tree string="District" export_xlsx="0">
+                <field name="pid"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="giaohangnhanh_district_search_view" model="ir.ui.view">
+        <field name="name">giaohangnhanh.district.search.view</field>
+        <field name="model">giaohangnhanh.district</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="giaohangnhanh_district_action_view">
+        <field name="name">Districts</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">giaohangnhanh.district</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('giaohangnhanh_district_tree_view')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('giaohangnhanh_district_form_view')})]"/>
+        <field name="search_view_id" ref="giaohangnhanh_district_search_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new District.
+            </p>
+        </field>
+    </record>
+</odoo>

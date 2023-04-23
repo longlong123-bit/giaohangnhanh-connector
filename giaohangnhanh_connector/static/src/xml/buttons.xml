@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="ListView.buttons">
+        <t t-jquery="div.o_list_buttons" t-operation="append">
+            <t t-name="ListView.recoverBtn">
+                <button t-if="widget.modelName=='giaohangnhanh.province'"
+                        type="button"
+                        class="btn btn-primary o_ghn_button_sync_province"
+                        style="margin-left: 2px !important;">
+                    Sync Provinces
+                </button>
+                <button t-if="widget.modelName=='giaohangnhanh.district'"
+                        type="button"
+                        class="btn btn-primary o_ghn_button_sync_district"
+                        style="margin-left: 2px !important;">
+                    Sync Districts
+                </button>
+                <button t-if="widget.modelName=='giaohangnhanh.ward'"
+                        type="button"
+                        class="btn btn-primary o_ghn_button_sync_ward"
+                        style="margin-left: 2px !important;">
+                    Sync Wards
+                </button>
+                <button t-if="widget.modelName=='giaohangnhanh.office'"
+                        type="button"
+                        class="btn btn-primary o_ghn_button_sync_office"
+                        style="margin-left: 2px !important;">
+                    Sync Post Offices
+                </button>
+                <button t-if="widget.modelName=='giaohangnhanh.service'"
+                        type="button"
+                        class="btn btn-primary o_ghn_button_sync_service"
+                        style="margin-left: 2px !important;">
+                    Sync Services
+                </button>
+                <button t-if="widget.modelName=='giaohangnhanh.store'"
+                        type="button"
+                        class="btn btn-primary o_ghn_button_sync_store"
+                        style="margin-left: 2px !important;">
+                    Sync Store
+                </button>
+            </t>
+        </t>
+    </t>
+</templates>
