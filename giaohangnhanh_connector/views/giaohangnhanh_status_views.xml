@@ -24,7 +24,7 @@
         <field name="name">giaohangnhanh.status.tree.view</field>
         <field name="model">giaohangnhanh.status</field>
         <field name="arch" type="xml">
-            <tree string="Status" export_xlsx="0">
+            <tree string="Status" export_xlsx="0" create="0" import="0">
                 <field name="code"/>
                 <field name="vi_name"/>
                 <field name="en_name"/>

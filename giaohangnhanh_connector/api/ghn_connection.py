@@ -31,7 +31,7 @@ class GHNConnection:
             elif method == Method.POST:
                 res = requests.post(url, json=kwargs, headers=headers, timeout=300)
             data = res.json()
-            self.create_connect_history(func_name, method, url, json.dumps(kwargs), data.get('message', False),
+            self.create_connect_history(func_name, method, url, json.dumps(kwargs), json.dumps(data.get('message', False)),
                                         data.get('code', False))
             if res.status_code != 200:
                 raise UserError(_(f'Request failed with status: {res.status_code} - Message: {data["message"]}'))

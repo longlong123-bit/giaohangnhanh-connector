@@ -66,6 +66,11 @@ class GHNClient:
         res = self.check_response(res)
         return res
 
+    def print_order(self, payload):
+        res = self.conn.execute_restful(FuncName.PrintOrder, Method.POST, **payload)
+        res = self.check_response(res)
+        return res
+
     def check_response(self, res):
         if res['code'] == 200:
             res = res['data']

@@ -37,7 +37,7 @@
         <field name="name">giaohangnhanh.province.tree.view</field>
         <field name="model">giaohangnhanh.province</field>
         <field name="arch" type="xml">
-            <tree string="Province" export_xlsx="0">
+            <tree string="Province" import="0" create="0" export_xlsx="0">
                 <field name="cid"/>
                 <field name="name"/>
                 <field name="code"/>

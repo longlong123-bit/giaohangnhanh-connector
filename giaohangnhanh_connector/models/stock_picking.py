@@ -1,6 +1,8 @@
 from odoo import models, fields, _
 from odoo.exceptions import UserError
 
+from odoo.addons.giaohangnhanh_connector.constants.ghn_constants import Const, Message
+
 
 class StockPickingVTP(models.Model):
     _inherit = 'stock.picking'
@@ -10,12 +12,12 @@ class StockPickingVTP(models.Model):
     bl_status = fields.Char(string='Waybill status', readonly=True, tracking=True)
     carrier_tracking_ref = fields.Char(string='Tracking Reference', copy=False, tracking=True)
 
-    # def _compute_carrier_tracking_url(self):
-    #     res = super(StockPickingVTP, self)._compute_carrier_tracking_url()
-    #     for rec in self:
-    #         if not rec.carrier_tracking_url and rec.carrier_id.delivery_type == 'viettelpost':
-    #             rec.carrier_tracking_url = Const.TRACKING_LINK.format(bl_code=rec.carrier_tracking_ref)
-    #     return res
+    def _compute_carrier_tracking_url(self):
+        res = super(StockPickingVTP, self)._compute_carrier_tracking_url()
+        for rec in self:
+            if not rec.carrier_tracking_url and rec.carrier_id.delivery_type == 'giaohangnhanh':
+                rec.carrier_tracking_url = Const.TRACKING_LINK.format(bl_code=rec.carrier_tracking_ref)
+        return res
     #
     # def button_validate(self):
     #     try:

@@ -1,10 +1,12 @@
+from typing import List
 from odoo import fields, api, models, _
 from odoo.exceptions import UserError
-
+from odoo.addons.giaohangnhanh_connector.dataclass.giaohangnhanh_store import Store
+from odoo.addons.api_connect_instances.common.action import Action
 from odoo.addons.giaohangnhanh_connector.constants.ghn_constants import Const, Message
 
 
-class ViettelPostStore(models.Model):
+class GHNStore(models.Model):
     _name = 'giaohangnhanh.store'
     _inherit = ['mail.thread']
     _description = 'Giao Hang Nhanh Store'
@@ -18,48 +20,28 @@ class ViettelPostStore(models.Model):
     wid = fields.Many2one('giaohangnhanh.ward', string='Ward', required=True, tracking=True)
     clid = fields.Integer(string='Client Id', readonly=True)
     version_no = fields.Char(string='Version No', readonly=True)
+    active = fields.Boolean(string='Active')
 
     @api.model
     def sync_stores(self):
-        client = self.env['api.connect.instances'].generate_client_api_ghn()
         try:
-            delivery_carrier_id = self.env['delivery.carrier'].search(
-                [('delivery_carrier_code', '=', Const.DELIVERY_CARRIER_CODE)])
-            if not delivery_carrier_id:
-                raise UserError(_(Message.MSG_NOT_CARRIER))
+            client = self.env['api.connect.instances'].generate_ghn_client_api()
             dataset = client.sync_stores()
-            if len(dataset['shops']) > 0:
-                for data in dataset['shops']:
-                    cid = self.search([('cid', '=', data['_id'])])
-                    district_id = self.env['giaohangnhanh.district'].search([('did', '=', data['district_id'])])
-                    ward_id = self.env['giaohangnhanh.ward'].search([('code', '=', data['ward_code'])])
-                    payload = {
-                        'cid': data['_id'],
-                        'name': data['name'],
-                        'phone': data['phone'],
-                        'address': data['address'],
-                        'pid': district_id.pid.id,
-                        'did': district_id.id,
-                        'wid': ward_id.id,
-                        'clid': data['client_id'],
-                        'status': str(data['status']),
-                        'version_no': data['version_no'],
-                        'delivery_carrier_id': delivery_carrier_id.id
-                    }
-                    if not cid:
-                        self.create(payload)
-                    else:
-                        cid.write(payload)
-            return {
-                "type": "ir.actions.client",
-                "tag": "display_notification",
-                "params": {
-                    "title": _("Sync stores successfully!"),
-                    "type": "success",
-                    "message": _(Message.MSG_ACTION_SUCCESS),
-                    "sticky": False,
-                    "next": {"type": "ir.actions.act_window_close"},
-                },
-            }
+            if dataset.get('shops'):
+                lst_store_need_create: list = []
+                dataclass_store: List[Store] = [Store(*Store.parser_dict(rec)) for rec in dataset.get('shops')]
+                lst_store_ids: List[int] = [rec.id for rec in dataclass_store]
+                lst_exists_store: List[GHNStore] = self.search([('cid', 'in', lst_store_ids)])
+                lst_exists_store_ids: List[int] = [rec.cid for rec in lst_exists_store]
+                for data in dataclass_store:
+                    if data.id not in lst_exists_store_ids:
+                        did = self.env['giaohangnhanh.district'].search([('did', '=', data.district_id)])
+                        wid = self.env['giaohangnhanh.ward'].search([('code', '=', data.ward_code)])
+                        if not did or not wid:
+                            continue
+                        lst_store_need_create.append(Store.parser_class(data, pid=did.pid.id, did=did.id, wid=wid.id))
+                if lst_store_need_create:
+                    self.create(lst_store_need_create)
+            return Action.display_notification(_('Sync stores successfully!'), _(Message.MSG_ACTION_SUCCESS))
         except Exception as e:
             raise UserError(_(f'Sync Store failed. Error: {str(e)}'))

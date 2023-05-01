@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="print_tracking_order_wizard_form_view" model="ir.ui.view">
+        <field name="name">print.tracking.order.wizard.form.view</field>
+        <field name="model">print.tracking.order.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="oe_title">
+                    <h1><field name="shipment_id" force_save="1"/></h1>
+                </div>
+                <footer>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    <button string="Print A5" type="object" name="action_print_tracking_order" context="{'type_print': 'a5'}" class="btn btn-primary"/>
+                    <button string="Print 80x80" type="object" name="action_print_tracking_order" context="{'type_print': '80x80'}" class="btn btn-primary"/>
+                    <button string="Print 50x72" type="object" name="action_print_tracking_order" context="{'type_print': '52x70'}" class="btn btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="print_tracking_order_wizard_action" model="ir.actions.act_window">
+        <field name="name">Print Tracking Order</field>
+        <field name="res_model">print.tracking.order.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

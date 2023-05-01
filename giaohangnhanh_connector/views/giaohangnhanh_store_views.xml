@@ -4,7 +4,7 @@
         <field name="name">giaohangnhanh.store.form.view</field>
         <field name="model">giaohangnhanh.store</field>
         <field name="arch" type="xml">
-            <form string="Store" create="0" edit="0" import="0">
+            <form string="Store">
                 <sheet>
                     <group>
                         <group>
@@ -32,10 +32,11 @@
         <field name="name">giaohangnhanh.store.tree.view</field>
         <field name="model">giaohangnhanh.store</field>
         <field name="arch" type="xml">
-            <tree string="Store" create="0" export_xlsx="0" js_class="override_btn">
+            <tree string="Store" import="0" create="0" export_xlsx="0" decoration-muted="(not active)">
                 <field name="name"/>
                 <field name="phone"/>
                 <field name="address"/>
+                <field name="active" invisible="1"/>
             </tree>
         </field>
     </record>

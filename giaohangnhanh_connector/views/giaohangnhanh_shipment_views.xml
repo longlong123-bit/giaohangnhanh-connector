@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="giaohangnhanh_shipment_form_view" model="ir.ui.view">
+        <field name="name">giaohangnhanh.shipment.form.view</field>
+        <field name="model">giaohangnhanh.shipment</field>
+        <field name="arch" type="xml">
+            <form string="Shipment" create="0" edit="0" import="0">
+                <header>
+                    <field name="currency_id" invisible="1"/>
+                    <button name="action_update_shipment" string="Update" type="object" class="btn btn-primary"/>
+                    <button name="%(print_tracking_order_wizard_action)d" string="Print" type="action" class="btn btn-primary"/>
+                    <button name="action_cancel_shipment" string="Cancel" type="object" />
+                </header>
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button type="object"
+                                name="open_website_url"
+                                class="oe_stat_button"
+                                icon="fa-truck"
+                                string="Tracking Link"
+                                attrs="{'invisible': [('carrier_tracking_ref','=',False)]}"/>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="carrier_tracking_ref" readonly="1"/>
+                        </h1>
+                        <h4>
+                            <field name="delivery_order_id"/>
+                        </h4>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="sender_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="sender_phone"/>
+                            <label for="sender_address" string="Address"/>
+                            <div class="o_address_format">
+                                <field name="sender_address" class="o_address_street" placeholder="Street"/>
+                                <field name="sender_ward_id" class="o_address_city" placeholder="Ward" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="sender_district_id" class="o_address_state" placeholder="District" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="sender_province_id" class="o_address_zip" placeholder="Province" options="{'no_create': True, 'no_open': True}"/>
+                            </div>
+                            <field name="service_id"/>
+                            <field name="payment_type_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="required_note_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <label for="weight" string="Shipment Size"/>
+                            <div class="o_row">
+                                <field name="length" placeholder="Length"/>
+                                <field name="cm_uom_name"/>
+                                <label for="width" string="x"/>
+                                <field name="width" placeholder="Width"/>
+                                <field name="cm_uom_name"/>
+                                <label for="height" string="x"/>
+                                <field name="height" placeholder="Height"/>
+                                <field name="cm_uom_name"/>
+                                <label for="height" string="="/>
+                                <field name="weight" placeholder="Weight"/>
+                                <field name="vol_weight_uom_name"/>
+                            </div>
+                            <field name="coupon"/>
+                            <field name="expected_delivery_time"/>
+                            <field name="state"/>
+                        </group>
+                        <group>
+                            <field name="receiver_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                            <field name="receiver_phone" widget="phone"/>
+                            <label for="receiver_street" string="Address"/>
+                            <div class="o_address_format">
+                                <field name="receiver_street" class="o_address_street" placeholder="Street"/>
+                                <field name="receiver_ward_id" class="o_address_city" placeholder="Ward" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="receiver_district_id" class="o_address_state" placeholder="District" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="receiver_province_id" class="o_address_zip" placeholder="Province" options="{'no_create': True, 'no_open': True}"/>
+                            </div>
+                            <field name="sort_code"/>
+                            <field name="client_order_code"/>
+                            <field name="insurance_value" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <field name="cod_amount" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <field name="total_fee" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Items">
+                            <field name="item_ids" widget="section_and_note_one2many" mode="tree">
+                                <tree editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="name" />
+                                    <field name="quantity"/>
+                                    <field name="price"/>
+                                    <field name="weight"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                     <field name="message_follower_ids" widget="mail_followers"/>
+                     <field name="message_ids" colspan="4" widget="mail_thread" nolabel="1"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="giaohangnhanh_shipment_tree_view" model="ir.ui.view">
+        <field name="name">giaohangnhanh.shipment.tree.view</field>
+        <field name="model">giaohangnhanh.shipment</field>
+        <field name="arch" type="xml">
+            <tree import="0" export_xlsx="0" edit="0" create="0">
+                <field name="create_date"/>
+                <field name="sender_id"/>
+                <field name="receiver_id"/>
+                <field name="delivery_order_id"/>
+                <field name="carrier_tracking_ref"/>
+                <field name="expected_delivery_time"/>
+                <field name="total_fee" widget='monetary'/>
+                <field name="state"/>
+                <field name="currency_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="giaohangnhanh_shipment_search_view" model="ir.ui.view">
+        <field name="name">giaohangnhanh.shipment.search.view</field>
+        <field name="model">giaohangnhanh.shipment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="create_date"/>
+                <field name="delivery_order_id"/>
+                <field name="carrier_tracking_ref"/>
+                <field name="state"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="giaohangnhanh_shipment_action_view">
+        <field name="name">Giao Hang Nhanh Shipments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">giaohangnhanh.shipment</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('giaohangnhanh_shipment_tree_view')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('giaohangnhanh_shipment_form_view')})]"/>
+        <field name="search_view_id" ref="giaohangnhanh_shipment_search_view"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new shipment information.
+            </p>
+        </field>
+    </record>
+</odoo>

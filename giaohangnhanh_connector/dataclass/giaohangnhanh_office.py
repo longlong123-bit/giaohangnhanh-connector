@@ -1,3 +1,4 @@
+import re
 from dataclasses import dataclass
 from enum import Enum
 from typing import Dict, Any, Sequence, Tuple
@@ -47,6 +48,11 @@ class Office(InputDict, OutputDict):
     iframe_map: str
 
     @staticmethod
+    def _change_css_for_iframe_map(iframe_map):
+        iframe_map = re.sub(r'width=\d+', 'width=100%', iframe_map)
+        return iframe_map
+
+    @staticmethod
     def parser_dict(data: Dict[str, Any]) -> Sequence[Tuple]:
         result: tuple = (
             data.get(KEY_INPUT_DICT_OFFICE.ADDRESS.value),
@@ -65,6 +71,7 @@ class Office(InputDict, OutputDict):
 
     @staticmethod
     def parser_class(cls, **kwargs) -> Dict[str, Any]:
+        iframe = Office._change_css_for_iframe_map(cls.iframe_map)
         payload: dict = {
             KEY_OUTPUT_DICT_OFFICE.NAME.value: cls.location_name,
             KEY_OUTPUT_DICT_OFFICE.CODE.value: cls.location_code,
@@ -76,6 +83,6 @@ class Office(InputDict, OutputDict):
             KEY_OUTPUT_DICT_OFFICE.ADDRESS.value: cls.address,
             KEY_OUTPUT_DICT_OFFICE.LATITUDE.value: cls.latitude,
             KEY_OUTPUT_DICT_OFFICE.LONGITUDE.value: cls.longitude,
-            KEY_OUTPUT_DICT_OFFICE.IFRAME_MAP.value: cls.iframe_map
+            KEY_OUTPUT_DICT_OFFICE.IFRAME_MAP.value: iframe
         }
         return payload

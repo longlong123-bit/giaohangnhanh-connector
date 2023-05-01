@@ -7,10 +7,23 @@
               groups="base.group_system"
     />
 
+    <menuitem id="menu_ghn_shipment_main"
+              parent="menu_ghn_root"
+              name="Giao Hang Nhanh Shipments"
+              sequence="1"
+    />
+
+    <menuitem id="menu_ghn_shipment"
+              name="Shipments Information"
+              parent="menu_ghn_shipment_main"
+              action="giaohangnhanh_shipment_action_view"
+              sequence="1"
+    />
+
     <menuitem id="menu_ghn_resources_main"
               parent="menu_ghn_root"
               name="Giao Hang Nhanh Resources"
-              sequence="1"
+              sequence="10"
     />
 
     <menuitem id="menu_ghn_status"
@@ -18,47 +31,60 @@
               parent="menu_ghn_resources_main"
               action="giaohangnhanh_status_action_view"
               sequence="1"
-              groups="base.group_system"
+    />
+
+    <menuitem id="menu_ghn_required_note"
+              name="Required Notes"
+              parent="menu_ghn_resources_main"
+              action="giaohangnhanh_require_note_action_view"
+              sequence="10"
+    />
+
+    <menuitem id="menu_ghn_payment_type"
+              name="Payment Types"
+              parent="menu_ghn_resources_main"
+              action="giaohangnhanh_payment_type_action_view"
+              sequence="20"
     />
 
     <menuitem id="menu_ghn_address_main"
               parent="menu_ghn_root"
               name="Giao Hang Nhanh Address"
-              sequence="10"
+              sequence="20"
     />
 
-    <menuitem id="menu_province"
+    <menuitem id="menu_provinces"
               parent="menu_ghn_address_main"
               name="Provinces"
               action="giaohangnhanh_province_action_view"
               sequence="1"
     />
 
-    <menuitem id="menu_district"
+    <menuitem id="menu_districts"
               parent="menu_ghn_address_main"
               name="Districts"
               action="giaohangnhanh_district_action_view"
               sequence="2"
     />
 
-    <menuitem id="menu_ward"
+    <menuitem id="menu_wards"
               parent="menu_ghn_address_main"
               name="Wards"
               action="giaohangnhanh_ward_action_view"
               sequence="3"
     />
 
-    <menuitem id="menu_ghn_store"
-              name="Store"
+    <menuitem id="menu_ghn_stores"
+              name="Stores"
               parent="menu_ghn_root"
               action="giaohangnhanh_store_action_view"
-              sequence="20"
+              sequence="30"
     />
 
-    <menuitem id="menu_ghn_office"
-              name="Post Office"
+    <menuitem id="menu_ghn_offices"
+              name="Post Offices"
               parent="menu_ghn_root"
               action="giaohangnhanh_office_action_view"
-              sequence="30"
+              sequence="40"
     />
 </odoo>

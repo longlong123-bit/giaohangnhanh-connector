@@ -26,7 +26,7 @@
         <field name="name">giaohangnhanh.ward.tree.view</field>
         <field name="model">giaohangnhanh.ward</field>
         <field name="arch" type="xml">
-            <tree string="Ward" export_xlsx="0">
+            <tree string="Ward" import="0" create="0" export_xlsx="0">
                 <field name="did"/>
                 <field name="name"/>
                 <field name="code"/>

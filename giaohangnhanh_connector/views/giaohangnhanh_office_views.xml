@@ -32,7 +32,7 @@
         <field name="name">giaohangnhanh.office.tree.view</field>
         <field name="model">giaohangnhanh.office</field>
         <field name="arch" type="xml">
-            <tree string="Post office" export_xlsx="0" create="0">
+            <tree string="Post office" import="0" create="0" export_xlsx="0">
                 <field name="name"/>
                 <field name="code"/>
                 <field name="email"/>

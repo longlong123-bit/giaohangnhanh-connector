@@ -20,7 +20,7 @@
         <field name="name">giaohangnhanh.require.note.tree.view</field>
         <field name="model">giaohangnhanh.require.note</field>
         <field name="arch" type="xml">
-            <tree string="Required note" export_xlsx="0" create="0">
+            <tree string="Required note" import="0" export_xlsx="0" create="0">
                 <field name="name"/>
                 <field name="code"/>
                 <field name="description"/>
@@ -29,7 +29,7 @@
     </record>
 
     <record id="giaohangnhanh_require_note_search_view" model="ir.ui.view">
-        <field name="name">giaohangnhanh.require.note.search</field>
+        <field name="name">giaohangnhanh.require.note.search.view</field>
         <field name="model">giaohangnhanh.require.note</field>
         <field name="arch" type="xml">
             <search>
@@ -41,7 +41,7 @@
     </record>
 
     <record model="ir.actions.act_window" id="giaohangnhanh_require_note_action_view">
-        <field name="name">Required Note</field>
+        <field name="name">Required Notes</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">giaohangnhanh.require.note</field>
         <field name="view_ids" eval="[(5, 0, 0),

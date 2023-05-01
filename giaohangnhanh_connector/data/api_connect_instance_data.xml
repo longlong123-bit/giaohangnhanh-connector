@@ -5,7 +5,7 @@
             <field name="name">[Instance] Giao Hang Nhanh</field>
             <field name="code">giaohangnhanh</field>
             <field name="host">https://online-gateway.ghn.vn</field>
-            <field name="icon">/giaohangnhanh_connector/static/src/description/icons/ghn_icon.png</field>
+            <field name="icon">/giaohangnhanh_connector/static/description/icons/ghn_icon.png</field>
             <field name="description">This is an instance helper connection to giao hang nhanh platform</field>
             <field name="active">True</field>
         </record>

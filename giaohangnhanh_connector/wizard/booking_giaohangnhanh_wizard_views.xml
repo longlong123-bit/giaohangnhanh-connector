@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="booking_giaohangnhanh_wizard_form_view" model="ir.ui.view">
+        <field name="name">booking.giaohangnhanh.wizard.form.view</field>
+        <field name="model">booking.giaohangnhanh.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="currency_id" invisible="1"/>
+                <div class="oe_title">
+                    <h1><field name="deli_order_id" force_save="1"/></h1>
+                    <h3><field name="carrier_id"/></h3>
+                </div>
+                <group>
+                    <group>
+                        <field name="sender_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                        <field name="sender_phone"/>
+                        <label for="sender_address" string="Address"/>
+                        <div class="o_address_format">
+                            <field name="sender_address" class="o_address_street" placeholder="Street"/>
+                            <field name="sender_ward_id" class="o_address_city" placeholder="Ward" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="sender_district_id" class="o_address_state" placeholder="District" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="sender_province_id" class="o_address_zip" placeholder="Province" options="{'no_create': True, 'no_open': True}"/>
+                        </div>
+                        <label for="service_id" string="Service"/>
+                        <div class="o_row">
+                            <field name="is_required" invisible="1"/>
+                            <field name="service_id"
+                                   attrs="{'invisible': [('sender_id','=',False)], 'required': [(('is_required', '=', True))]}"
+                                   domain="[('service_id', 'in', context.get('service_supported', False))]"
+                                   options="{'no_create_edit': True, 'no_open': True}"
+                            />
+                            <button name="action_get_service_for_shipment"
+                                    attrs="{'invisible': [('sender_id', '=', False)]}"
+                                    type="object"
+                                    string="Get Service"
+                                    class="btn btn-primary"
+                            />
+                        </div>
+                        <field name="payment_type_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                        <field name="required_note_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                        <label for="length" string="Length"/>
+                        <div class="o_row">
+                            <field name="length"/>
+                            <label for="length" string="cm"/>
+                        </div>
+                        <label for="width" string="Width"/>
+                        <div class="o_row">
+                            <field name="width"/>
+                            <label for="width" string="cm"/>
+                        </div>
+                        <label for="height" string="Height"/>
+                        <div class="o_row">
+                            <field name="height" placeholder="Height"/>
+                            <label for="height" string="cm"/>
+                        </div>
+                        <label for="weight" string="Weight"/>
+                        <div class="o_row">
+                            <field name="weight"/>
+                            <label for="weight" string="gram"/>
+                        </div>
+                    </group>
+                    <group>
+                        <field name="receiver_id" options="{'no_create_edit': True, 'no_open': True}"/>
+                        <field name="receiver_phone" widget="phone"/>
+                        <label for="receiver_street" string="Address"/>
+                        <div class="o_address_format">
+                            <field name="receiver_street" class="o_address_street" placeholder="Street"/>
+                            <field name="receiver_ward_id" class="o_address_city" placeholder="Ward" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="receiver_district_id" class="o_address_state" placeholder="District" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="receiver_province_id" class="o_address_zip" placeholder="Province" options="{'no_create': True, 'no_open': True}"/>
+                        </div>
+                        <field name="client_order_code"/>
+                        <field name="insurance_value" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        <field name="coupon"/>
+                        <field name="cod_amount" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        <field name="note"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Items">
+                        <field name="item_ids" widget="section_and_note_one2many" mode="tree">
+                            <form editable="bottom" create="0" edit="0" delete="0">
+                                <field name="product_id"/>
+                                <field name="name" />
+                                <field name="quantity"/>
+                                <field name="price"/>
+                                <field name="weight"/>
+                            </form>
+                            <tree editable="bottom" create="0" edit="0" delete="0">
+                                <field name="product_id"/>
+                                <field name="name" />
+                                <field name="quantity"/>
+                                <field name="price"/>
+                                <field name="weight"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+                <footer>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    <button string="Booking" type="object" name="action_booking_giaohangnhanh" class="btn btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="booking_giaohangnhanh_wizard_action" model="ir.actions.act_window">
+        <field name="name">Booking Giao Hang Nhanh</field>
+        <field name="res_model">booking.giaohangnhanh.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

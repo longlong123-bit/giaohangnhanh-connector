@@ -8,7 +8,6 @@ class GHNService(models.Model):
     name = fields.Char(string='Name', required=True)
     service_type_id = fields.Integer(string='Service Type Id')
     service_id = fields.Integer(string='Service Id')
-    sale_order_id = fields.Many2one('sale.order', string='Sale order')
 
     @api.depends('name', 'service_id')
     def name_get(self):

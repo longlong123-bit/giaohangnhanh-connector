@@ -8,6 +8,10 @@ class Const:
     MAXIMUM_HEIGHT_SIZE_PACKER = 150
     MAXIMUM_INSURANCE_VALUE = 5000000
     MAXIMUM_COD_VALUE = 10000000
+    TRACKING_LINK = 'https://donhang.ghn.vn/?order_code={bl_code}'
+    URL_PRINT_A5 = '{host}/a5/public-api/printA5?token={token}'
+    URL_PRINT_80x80 = '{host}/a5/public-api/print80x80?token={token}'
+    URL_PRINT_52x70 = '{host}/a5/public-api/print52x70?token={token}'
 
 
 class Message:
@@ -28,6 +32,7 @@ class FuncName:
     SyncPostOffices = 'SyncPostOffices'
     CreateOrder = 'CreateOrder'
     CancelOrder = 'CancelOrder'
+    PrintOrder = 'PrintOrder'
 
 
 class Method:
